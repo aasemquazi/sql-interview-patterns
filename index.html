@@ -1,0 +1,134 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>10 SQL Interview Patterns | Data Binaries</title><style>
+@page{size:A4;margin:0}
+*{box-sizing:border-box}body{margin:0;font-family:Poppins,sans-serif;color:#1b2333}
+.page{width:210mm;height:297mm;padding:16mm 16mm 14mm;position:relative;page-break-after:always;overflow:hidden}
+.cover{background:#0b1f3a;color:#fff;display:flex;flex-direction:column}
+.brand{font-family:Poppins;font-weight:700;letter-spacing:.5px;font-size:15pt;color:#f5a623}
+.cover h1{font-family:Poppins;font-size:40pt;line-height:1.05;margin:26mm 0 6mm}
+.cover .sub{font-size:14pt;color:#c9d4e6;max-width:150mm;line-height:1.45}
+.list{margin-top:12mm;display:grid;grid-template-columns:1fr 1fr;gap:3mm 8mm;font-size:11.5pt}
+.list div{border-left:3px solid #f5a623;padding:1.5mm 0 1.5mm 3.5mm}
+.list b{color:#f5a623;margin-right:2mm}
+.how{margin-top:auto;background:#13305a;border-radius:4mm;padding:6mm 7mm;font-size:10pt;line-height:1.55}
+.how h3{margin:0 0 2mm;font-family:Poppins;color:#f5a623;font-size:12pt}
+.how ol{margin:0;padding-left:5mm}
+.day{border:1px solid #dfe5ee;border-radius:4mm;padding:6mm 7mm;margin-bottom:6mm;height:126mm;display:flex;flex-direction:column}
+.dn{font-family:Poppins;font-weight:700;color:#f5a623;font-size:10pt;letter-spacing:1px}
+.day h2{font-family:Poppins;margin:1mm 0 2mm;font-size:18pt;color:#0b1f3a}
+.why{margin:0 0 3mm;font-size:9.8pt;line-height:1.5}
+pre{background:#0b1f3a;color:#e8eef8;border-radius:3mm;padding:3.5mm 4.5mm;font-size:8.6pt;line-height:1.45;margin:0 0 3mm;white-space:pre;font-family:"DejaVu Sans Mono",monospace}
+.tip{font-size:9.4pt;line-height:1.5;margin:0 0 3mm;background:#fff6e5;border-radius:2mm;padding:2.5mm 3.5mm}
+.qs2{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+.q{display:block;text-decoration:none;color:inherit;border:1.5px solid #0b1f3a;border-radius:3mm;padding:2.5mm 3.5mm}
+.ql{display:block;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#6b7a90}
+.qt{display:block;font-weight:500;font-size:10pt;margin:.8mm 0}
+.qs{display:block;font-size:8.5pt;color:#1f5fbf}
+.lvl{font-size:7.5pt;font-weight:700;padding:.3mm 1.5mm;border-radius:1mm;vertical-align:middle}
+.easy{background:#dff5e6;color:#1d7a3e}.medium{background:#fff0cc;color:#8a5a00}.hard{background:#fde0de;color:#a02a20}
+footer{position:absolute;bottom:7mm;left:16mm;right:16mm;font-size:8pt;color:#8a96a8;text-align:right}
+.end{background:#0b1f3a;color:#fff;display:flex;flex-direction:column}
+.end h2{font-family:Poppins;font-size:28pt;margin:18mm 0 5mm;line-height:1.15}
+.end p{font-size:12pt;line-height:1.6;color:#c9d4e6;max-width:160mm}
+.box{background:#13305a;border-radius:4mm;padding:6mm 7mm;margin-top:6mm;font-size:11.5pt;line-height:1.7}
+.box b{color:#f5a623} .box a{color:#fff}
+.note{margin-top:auto;font-size:8.5pt;color:#8ea0bd;line-height:1.5}
+@media screen{
+body{background:#eef2f7}
+.page{width:auto;height:auto;max-width:760px;margin:0 auto;padding:28px 20px;overflow:visible;page-break-after:auto}
+.page:not(.cover):not(.end){background:#eef2f7}
+.cover h1{margin:40px 0 14px;font-size:clamp(30px,8vw,46px)}
+.cover .sub{font-size:16px}
+.list{margin:26px 0;font-size:14px}
+.how{margin-top:10px;font-size:14px}
+.day{height:auto;background:#fff;margin-bottom:18px;padding:20px}
+.day h2{font-size:22px}
+.why{font-size:14.5px}.tip{font-size:14px}
+pre{overflow-x:auto;font-size:12px}
+.qs2{margin-top:10px}
+.qt{font-size:14px}.ql{font-size:11px}.qs{font-size:12px}
+footer{display:none}
+.end h2{margin:30px 0 14px;font-size:30px}.end p{font-size:15px}.box{font-size:15px}.note{margin-top:24px;font-size:12px}
+.dl{display:inline-block;margin-top:18px;background:#f5a623;color:#0b1f3a;font-weight:700;padding:10px 16px;border-radius:8px;text-decoration:none;font-size:14px}
+}
+@media screen and (max-width:560px){.list,.qs2{grid-template-columns:1fr}}
+@media print{.dl{display:none}}
+</style><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet"></head><body>
+<div class="page cover"><div class="brand">DATA BINARIES</div>
+<h1>10 SQL patterns<br>interviews keep asking</h1>
+<div class="sub">Tutorials teach one command at a time. Interviews mix them. These 10 patterns cover the questions that come up again and again for Data Analyst and Data Engineer roles. One pattern a day, ten days.</div><a class="dl" href="SQL-Interview-Patterns-Data-Binaries.pdf" target="_blank" rel="noopener">Open the PDF version</a>
+<div class="list"><div><b>01</b>Join 2–3 tables</div><div><b>02</b>GROUP BY + HAVING</div><div><b>03</b>Rows with no match</div><div><b>04</b>Find duplicates</div><div><b>05</b>CASE WHEN</div><div><b>06</b>Filter by dates</div><div><b>07</b>Second highest value</div><div><b>08</b>Top N in each group</div><div><b>09</b>Running totals and rolling averages</div><div><b>10</b>Month-on-month growth</div></div>
+<div class="how"><h3>How to use this sheet</h3><ol>
+<li>One pattern a day. Read the example, then close it and write the query yourself.</li>
+<li>Give each question 20 minutes before you open a hint.</li>
+<li>When it runs, say in one sentence what the result means for the business. Interviewers ask this next.</li>
+<li>Can't solve the Level up question yet? Come back to it after Day 10.</li></ol></div></div>
+<div class="page"><section class="day"><div class="dn">DAY 01</div><h2>Join 2–3 tables</h2>
+<p class="why">Most interview answers need data from more than one table, like members, bookings and facilities. You must know which column links each pair of tables.</p><pre>SELECT m.firstname, f.name
+FROM members m
+JOIN bookings b   ON b.memid = m.memid
+JOIN facilities f ON f.facid = b.facid;</pre><p class="tip"><b>Interview tip:</b> Before writing the query, say which column connects the tables. Interviewers listen for this.</p>
+<div class="qs2"><a class="q" href="https://pgexercises.com/questions/joins/threejoin.html"><span class="ql">Practise</span><span class="qt">Members who have used a tennis court </span><span class="qs">PG Exercises ↗</span></a><a class="q" href="https://platform.stratascratch.com/coding/10308-salaries-differences"><span class="ql">Level up</span><span class="qt">Salaries Differences <span class="lvl easy">Easy</span></span><span class="qs">StrataScratch ↗</span></a></div></section><section class="day"><div class="dn">DAY 02</div><h2>GROUP BY + HAVING</h2>
+<p class="why">Totals per category, then keep only the groups that cross a limit: &quot;facilities with more than 1,000 slots booked&quot;.</p><pre>SELECT facid, SUM(slots) AS total_slots
+FROM bookings
+GROUP BY facid
+HAVING SUM(slots) &gt; 1000;</pre><p class="tip"><b>Interview tip:</b> WHERE filters rows before grouping. HAVING filters groups after grouping. This difference is asked very often.</p>
+<div class="qs2"><a class="q" href="https://pgexercises.com/questions/aggregates/fachours1a.html"><span class="ql">Practise</span><span class="qt">Facilities with more than 1000 slots booked </span><span class="qs">PG Exercises ↗</span></a><a class="q" href="https://datalemur.com/questions/matching-skills"><span class="ql">Level up</span><span class="qt">Data Science Skills <span class="lvl easy">Easy</span></span><span class="qs">DataLemur · LinkedIn ↗</span></a></div></section><footer>Data Binaries · SQL Interview Patterns · 2</footer></div><div class="page"><section class="day"><div class="dn">DAY 03</div><h2>Rows with no match</h2>
+<p class="why">&quot;Customers who never ordered&quot;, &quot;pages with no likes&quot;. An inner join hides these rows, so you need a LEFT JOIN.</p><pre>SELECT p.page_id
+FROM pages p
+LEFT JOIN page_likes l ON l.page_id = p.page_id
+WHERE l.page_id IS NULL;</pre><p class="tip"><b>Interview tip:</b> LEFT JOIN keeps every row from the left table. Where nothing matched, the right side is NULL, and that is what you filter on.</p>
+<div class="qs2"><a class="q" href="https://datalemur.com/questions/sql-page-with-no-likes"><span class="ql">Practise</span><span class="qt">Page With No Likes <span class="lvl easy">Easy</span></span><span class="qs">DataLemur · Facebook ↗</span></a><a class="q" href="https://datalemur.com/questions/signup-confirmation-rate"><span class="ql">Level up</span><span class="qt">Signup Activation Rate <span class="lvl medium">Medium</span></span><span class="qs">DataLemur · TikTok ↗</span></a></div></section><section class="day"><div class="dn">DAY 04</div><h2>Find duplicates</h2>
+<p class="why">Real data is messy. &quot;Find companies that posted the same job twice&quot; or &quot;keep only the latest record&quot; checks if you can clean data.</p><pre>SELECT company_id, title, COUNT(*)
+FROM job_listings
+GROUP BY company_id, title
+HAVING COUNT(*) &gt; 1;</pre><p class="tip"><b>Interview tip:</b> Group by every column that makes two rows &quot;the same&quot;, then count. Ask the interviewer which columns define a duplicate.</p>
+<div class="qs2"><a class="q" href="https://datalemur.com/questions/duplicate-job-listings"><span class="ql">Practise</span><span class="qt">Duplicate Job Listings <span class="lvl easy">Easy</span></span><span class="qs">DataLemur · LinkedIn ↗</span></a><a class="q" href="https://platform.stratascratch.com/coding/10299-finding-updated-records"><span class="ql">Level up</span><span class="qt">Finding Updated Records <span class="lvl easy">Easy</span></span><span class="qs">StrataScratch · Microsoft ↗</span></a></div></section><footer>Data Binaries · SQL Interview Patterns · 3</footer></div><div class="page"><section class="day"><div class="dn">DAY 05</div><h2>CASE WHEN</h2>
+<p class="why">Turn values into categories or count only some rows: laptop views vs mobile views, calls that were international.</p><pre>SELECT
+  SUM(CASE WHEN device_type = &#x27;laptop&#x27; THEN 1 ELSE 0 END) AS laptop_views,
+  SUM(CASE WHEN device_type IN (&#x27;tablet&#x27;,&#x27;phone&#x27;) THEN 1 ELSE 0 END) AS mobile_views
+FROM viewership;</pre><p class="tip"><b>Interview tip:</b> CASE inside SUM or COUNT lets you build several counts in one pass over the table.</p>
+<div class="qs2"><a class="q" href="https://datalemur.com/questions/laptop-mobile-viewership"><span class="ql">Practise</span><span class="qt">Laptop vs. Mobile Viewership <span class="lvl easy">Easy</span></span><span class="qs">DataLemur · NY Times ↗</span></a><a class="q" href="https://datalemur.com/questions/international-call-percentage"><span class="ql">Level up</span><span class="qt">International Call Percentage <span class="lvl medium">Medium</span></span><span class="qs">DataLemur · Verizon ↗</span></a></div></section><section class="day"><div class="dn">DAY 06</div><h2>Filter by dates</h2>
+<p class="why">&quot;Users who sent the most messages in August&quot;, &quot;gap between first and last post this year&quot;. Dates appear in almost every business question.</p><pre>SELECT sender_id, COUNT(*) AS messages
+FROM messages
+WHERE sent_date &gt;= &#x27;2022-08-01&#x27;
+  AND sent_date &lt;  &#x27;2022-09-01&#x27;
+GROUP BY sender_id;</pre><p class="tip"><b>Interview tip:</b> Use &gt;= the start date and &lt; the next period&#x27;s start. It never misses rows from the last day, whatever the time.</p>
+<div class="qs2"><a class="q" href="https://datalemur.com/questions/teams-power-users"><span class="ql">Practise</span><span class="qt">Teams Power Users <span class="lvl easy">Easy</span></span><span class="qs">DataLemur · Microsoft ↗</span></a><a class="q" href="https://datalemur.com/questions/sql-average-post-hiatus-1"><span class="ql">Level up</span><span class="qt">Average Post Hiatus (Part 1) <span class="lvl easy">Easy</span></span><span class="qs">DataLemur · Facebook ↗</span></a></div></section><footer>Data Binaries · SQL Interview Patterns · 4</footer></div><div class="page"><section class="day"><div class="dn">DAY 07</div><h2>Second highest value</h2>
+<p class="why">The classic: second highest salary, third transaction of each user. It checks subqueries and ranking.</p><pre>SELECT MAX(salary) AS second_highest
+FROM employee
+WHERE salary &lt; (SELECT MAX(salary) FROM employee);</pre><p class="tip"><b>Interview tip:</b> Know two ways: the subquery above, and ranking with DENSE_RANK(). Say why DENSE_RANK handles equal salaries correctly.</p>
+<div class="qs2"><a class="q" href="https://datalemur.com/questions/sql-second-highest-salary"><span class="ql">Practise</span><span class="qt">Second Highest Salary <span class="lvl medium">Medium</span></span><span class="qs">DataLemur · FAANG ↗</span></a><a class="q" href="https://datalemur.com/questions/sql-third-transaction"><span class="ql">Level up</span><span class="qt">User&#x27;s Third Transaction <span class="lvl medium">Medium</span></span><span class="qs">DataLemur · Uber ↗</span></a></div></section><section class="day"><div class="dn">DAY 08</div><h2>Top N in each group</h2>
+<p class="why">&quot;Top 3 salaries in each department&quot;, &quot;two best-selling products in each category&quot;. One of the most asked window-function questions.</p><pre>SELECT * FROM (
+  SELECT name, department_id, salary,
+    DENSE_RANK() OVER (PARTITION BY department_id
+                       ORDER BY salary DESC) AS rnk
+  FROM employee
+) t
+WHERE rnk &lt;= 3;</pre><p class="tip"><b>Interview tip:</b> PARTITION BY restarts the ranking for every group. You can&#x27;t filter a window function in WHERE directly, so wrap it in a subquery.</p>
+<div class="qs2"><a class="q" href="https://datalemur.com/questions/sql-top-three-salaries"><span class="ql">Practise</span><span class="qt">Top Three Salaries <span class="lvl medium">Medium</span></span><span class="qs">DataLemur · FAANG ↗</span></a><a class="q" href="https://datalemur.com/questions/sql-highest-grossing"><span class="ql">Level up</span><span class="qt">Highest-Grossing Items <span class="lvl medium">Medium</span></span><span class="qs">DataLemur · Amazon ↗</span></a></div></section><footer>Data Binaries · SQL Interview Patterns · 5</footer></div><div class="page"><section class="day"><div class="dn">DAY 09</div><h2>Running totals and rolling averages</h2>
+<p class="why">&quot;3-day rolling average of tweets&quot;, &quot;revenue to date&quot;. Used in every dashboard, so analysts get asked this a lot.</p><pre>SELECT user_id, tweet_date,
+  ROUND(AVG(tweet_count) OVER (
+    PARTITION BY user_id ORDER BY tweet_date
+    ROWS BETWEEN 2 PRECEDING AND CURRENT ROW), 2) AS rolling_avg_3d
+FROM tweets;</pre><p class="tip"><b>Interview tip:</b> ROWS BETWEEN decides how many rows go into each average. For a running total, use SUM(...) OVER (ORDER BY date).</p>
+<div class="qs2"><a class="q" href="https://datalemur.com/questions/rolling-average-tweets"><span class="ql">Practise</span><span class="qt">Tweets&#x27; Rolling Averages <span class="lvl medium">Medium</span></span><span class="qs">DataLemur · Twitter ↗</span></a><a class="q" href="https://pgexercises.com/questions/aggregates/rollingavg.html"><span class="ql">Level up</span><span class="qt">Rolling average of total revenue </span><span class="qs">PG Exercises ↗</span></a></div></section><section class="day"><div class="dn">DAY 10</div><h2>Month-on-month growth</h2>
+<p class="why">&quot;How much did revenue grow compared to last month?&quot; This combines GROUP BY, dates and LAG, so it is often the hardest question in the round.</p><pre>WITH monthly AS (
+  SELECT DATE_TRUNC(&#x27;month&#x27;, created_at) AS month,
+         SUM(value) AS revenue
+  FROM transactions GROUP BY 1
+)
+SELECT month, revenue,
+  ROUND((revenue - LAG(revenue) OVER (ORDER BY month)) * 100.0
+        / LAG(revenue) OVER (ORDER BY month), 2) AS pct_change
+FROM monthly;</pre><p class="tip"><b>Interview tip:</b> LAG() reads the previous row. Build monthly totals first, then compare. Multiply by 100.0, not 100, so the division isn&#x27;t rounded to a whole number.</p>
+<div class="qs2"><a class="q" href="https://platform.stratascratch.com/coding/10319-monthly-percentage-difference"><span class="ql">Practise</span><span class="qt">Monthly Percentage Difference <span class="lvl hard">Hard</span></span><span class="qs">StrataScratch · Amazon ↗</span></a><a class="q" href="https://datalemur.com/questions/yoy-growth-rate"><span class="ql">Level up</span><span class="qt">Y-on-Y Growth Rate <span class="lvl hard">Hard</span></span><span class="qs">DataLemur · Wayfair ↗</span></a></div></section><footer>Data Binaries · SQL Interview Patterns · 6</footer></div>
+<div class="page end"><div class="brand">DATA BINARIES</div>
+<h2>Finished all 10?<br>Now practise speaking it.</h2>
+<p>Writing the query is half the interview. The other half is explaining your approach out loud while you write it. Pick any 3 questions from this sheet and solve them again while talking through each step, the way you would in front of an interviewer.</p>
+<div class="box"><b>Need help with SQL or your Data Analyst / Data Engineer preparation?</b><br>
+Data Binaries, Chhatrapati Sambhajinagar (since 2017)<br>
+WhatsApp our career counsellor: <a href="https://wa.me/919373929706">+91 93739 29706</a><br>
+Website: <a href="https://www.databinaries.com">www.databinaries.com</a><br>
+Free courses on the Data Binaries app (Android and web)</div>
+<p class="note">Question links checked on 8 Nov 2026. PG Exercises, DataLemur and StrataScratch are independent websites, not linked to Data Binaries. StrataScratch asks you to log in to run code, and some questions on these sites may need a paid plan. Company names are as tagged by each site. Example queries use PostgreSQL syntax.</p></div>
+</body></html>
